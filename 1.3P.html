@@ -1,0 +1,152 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Add more styling as needed for your specific design */
+    </style>
+</head>
+<body>
+    <div id="app" class="container">
+        <header>
+            <h1>Namra Patel</h1>
+            <p>Web Developer</p>
+        </header>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                Career Profile: Dynamic and highly motivated IT professional 
+with a robust foundation in information technology and an 
+unwavering dedication to problem-solving. Currently pursuing a 
+Bachelor of IT at Deakin University, complemented by industry standard certifications and practical experience gained through 
+employment at McDonald's. Proficient in Python, C++, Azure, 
+and MySQL, exhibiting exceptional proficiency in delivering 
+innovative and reliable solutions.
+Education: BACHELOR OF INFORMATION TECHNOLOGY
+March 23 - Current Deakin University, Geelong 
+• Expected completion date: July 2025 • Major: Cyber Security 
+• Achievements: Attained an outstanding academic record by 
+consistently earning distinctions in all units during the inaugural 
+term of my Bachelor of IT program, showcasing a relentless 
+pursuit of excellence and a comprehensive grasp of the 
+curriculum.</p>
+<h2>Skills</h2>
+<p> Systems Competencies 
+<p>• HTML, CSS, JAVA </p>
+<p>• C++, Python</p> 
+<p>• Technical Troubleshooting 
+</p>
+<p>• Network protocols and configurations </p>
+<p>• Office 365</p> 
+<p>• Azure, AWS</p> 
+<p>• MySQL</p> 
+<p>• WordPress </p>
+<p>• MS Word, Excel </p>
+<p>• Communication </p>
+<p>• Analytical </p>
+<p>• Customer service orientation </p>
+<p>• Adaptability and flexibility</p>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div v-for="project in projects" :key="project.id" class="project-card">
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.description }}</p>
+                <a :href="project.url" target="_blank">View Project</a>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" v-model="contactName">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" v-model="contactEmail">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" v-model="contactMessage"></textarea>
+                </div>
+                <button @click="sendMessage">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.6/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    contactName: "",
+                    contactEmail: "",
+                    contactMessage: "",
+                    projects: [
+                        {
+                            id: 1,
+                            title: "Project 1",
+                            description: "Description of project 1.",
+                            url: "https://github.com/s223672039/Sit-120-1.1"
+                        },
+                        {
+                            id: 2,
+                            title: "Project 2",
+                            description: "Description of project 2.",
+                            url: "https://github.com/s223672039/1.2C"
+                        },
+                        {
+                            id: 3,
+                            title: "Project 3",
+                            description: "Description of project 2.",
+                            url: "https://github.com/s223672039/2.1-C"
+                        },
+                        {
+                            id: 4,
+                            title: "Project 4",
+                            description: "Description of project 2.",
+                            url: "https://github.com/s223672039/2.2C"
+                        },
+                         {
+                            id: 5,
+                            title: "Project 5",
+                            description: "Description of project 2.",
+                            url: "https://github.com/s223672039/2.3C-final"
+                        },
+                    ]
+                };
+            },
+            methods: {
+                sendMessage() {
+                    // Add logic to send the contact message
+                    console.log("Message sent!");
+                }
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+</html>
